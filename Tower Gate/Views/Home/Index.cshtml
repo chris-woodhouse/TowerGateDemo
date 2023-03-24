@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Tower Gate portal";
+}
+
+<div class="text-center">
+    @model IEnumerable<Customer>
+    @if (Model != null)
+    {
+
+        //Customers Table
+        <table class="table">
+            <tr>
+                <th>Customer Name</th>
+                <th>Customer Age</th>
+                <th>PostCode</th>
+                <th>Height</th>
+                <th>Edit</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.PostCode</td>
+                    <td>@item.Height</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { Id = item.Id })</td>
+                </tr>
+
+            }
+        </table>
+        <div>
+            @Html.ActionLink("Add", "Create")
+        </div>
+
+    }
+
+</div>
